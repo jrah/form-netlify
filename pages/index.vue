@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     async sendFormLambda() {
+      this.isSending === true
       try {
         await this.$axios.$post(
           `https://hungry-hamilton-94675d.netlify.app/.netlify/functions/mail`,
@@ -55,6 +56,7 @@ export default {
             email: this.form.email,
           }
         )
+        this.isSending === false
         console.log('success')
         this.form.email = ''
         // return response
