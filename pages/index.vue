@@ -53,13 +53,14 @@ export default {
     async sendFormLambda() {
       try {
         const response = await this.$axios.$post(
-          '/.netlify/functions/mail',
+          'https://hungry-hamilton-94675d.netlify.app/.netlify/functions/mail',
           {
             email: this.form.email,
           }
         )
         console.log('success')
         this.form.email = ''
+        return response
       } catch (error) {
         console.log('error', error)
       }
