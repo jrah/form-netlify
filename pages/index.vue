@@ -43,7 +43,7 @@ export default {
       form: {
         email: '',
       },
-      isSending: true
+      isSending: false
     }
   },
   methods: {
