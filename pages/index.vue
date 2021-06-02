@@ -52,15 +52,15 @@ export default {
   methods: {
     async sendFormLambda() {
       try {
-        const response = await this.$axios.$post(
-          'https://hungry-hamilton-94675d.netlify.app/.netlify/functions/mail',
+        await this.$axios.$post(
+          'http://localhost:8888/.netlify/functions/mail',
           {
             email: this.form.email,
           }
         )
         console.log('success')
         this.form.email = ''
-        return response
+        // return response
       } catch (error) {
         console.log('error', error)
       }

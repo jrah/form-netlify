@@ -18,28 +18,37 @@ exports.handler = async (event) => {
   }
 
   const mailgunData = {
-    from: 'jhome@email.com',
-    to: 'jhome@email.com',
+    from: 'jjames.home@gmail.com',
+    to: 'jjames.home@gmail.com',
     subject: `New mail from`,
     html: `
     <h4> Email ${data.email} </h4>
     `
   }
 
-  try {
-    await mailgun.messages().send(mailgunData)
-
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*", // Allow from anywhere 
-    },
-    body: 'Response OK'
-    }
-  } catch (error) {
-      return {
-        statusCode: 422,
-        body: `Error: ${error}`
-      }
+  await mailgun.messages().send(mailgunData)
+  return {
+    statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*", // Allow from anywhere 
+  },
+  body: 'Response OK'
   }
+
+  // try {
+  //   await mailgun.messages().send(mailgunData)
+  //   return {
+  //     statusCode: 200,
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*", // Allow from anywhere 
+  //   },
+  //   body: JSON.stringify(response)
+  //   }
+  // } 
+  // catch (error) {
+  //     return {
+  //       statusCode: 422,
+  //       body: `Error: ${error}`
+  //     }
+  // }
 }
