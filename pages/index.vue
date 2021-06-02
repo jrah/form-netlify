@@ -50,7 +50,7 @@ export default {
     async sendFormLambda() {
       try {
         await this.$axios.$post(
-          'http://localhost:8888/.netlify/functions/mail',
+          '/.netlify/functions/mail',
           {
             email: this.form.email,
           }
