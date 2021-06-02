@@ -40,9 +40,6 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
   env: {
-    functions:
-      process.env === 'production'
-        ? `${process.env.base_URL}/.netlify/functions`
-        : 'http://localhost:9000',
+    functions: 'https://hungry-hamilton-94675d.netlify.app/.netlify/functions'
   },
 }
