@@ -78,8 +78,7 @@ export default {
             email: this.form.email,
           }
         )
-        this.isSending === false
-        this.formConfirmation === true
+        this.formConfirmation = true
         console.log('success')
         this.form.email = ''
         this.form.message = ''
