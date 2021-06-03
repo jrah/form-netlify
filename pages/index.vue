@@ -12,11 +12,24 @@
       </div>
       <div v-else>
         <label for="email" class="block text-sm font-medium text-gray-700"
-          >Email</label
+          >Email to send message to</label
         >
         <div class="mt-1">
           <input
             v-model="form.email"
+            type="text"
+            name="email"
+            id="email"
+            class="p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 border rounded-md"
+            placeholder="you@example.com"
+          />
+        </div>
+                <label for="email" class="block text-sm font-medium text-gray-700"
+          >Message</label
+        >
+        <div class="mt-1">
+          <textarea
+            v-model="form.message"
             type="text"
             name="email"
             id="email"
@@ -49,6 +62,7 @@ export default {
     return {
       form: {
         email: '',
+        message: ''
       },
       isSending: false,
       formConfirmation: false,
@@ -68,6 +82,7 @@ export default {
         this.formConfirmation === true
         console.log('success')
         this.form.email = ''
+        this.form.message = ''
         // return response
       } catch (error) {
         console.log('error', error)

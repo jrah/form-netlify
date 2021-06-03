@@ -19,10 +19,10 @@ exports.handler = async (event) => {
 
   const mailgunData = {
     from: 'jjames.home@gmail.com',
-    to: 'jjames.home@gmail.com',
+    to: data.email,
     subject: `New mail from`,
     html: `
-    <h4> Email ${data.email} </h4>
+    <p> Message ${data.message} </p>
     `
   }
   try {
