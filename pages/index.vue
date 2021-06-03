@@ -76,6 +76,7 @@ export default {
           `https://hungry-hamilton-94675d.netlify.app/.netlify/functions/mail`,
           {
             email: this.form.email,
+            message: this.form.message
           }
         )
         this.formConfirmation = true
