@@ -13,9 +13,9 @@ exports.handler = async (event) => {
 
   const data = JSON.parse(event.body)
 
-  if (!data.message) {
-    return { statusCode: 422, body: 'Message is required' }
-  }
+  // if (!data.message) {
+  //   return { statusCode: 422, body: 'Message is required' }
+  // }
 
   const mailgunData = {
     from: 'jjames.home@gmail.com',
