@@ -24,17 +24,17 @@
             placeholder="you@example.com"
           />
         </div>
-                <label for="email" class="block text-sm font-medium text-gray-700"
+                <label for="message" class="block text-sm font-medium text-gray-700"
           >Message</label
         >
         <div class="mt-1">
           <textarea
             v-model="form.message"
             type="text"
-            name="email"
-            id="email"
+            name="message"
+            id="message"
             class="p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 border rounded-md"
-            placeholder="you@example.com"
+            placeholder="Your message"
           />
         </div>
       </div>
