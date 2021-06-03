@@ -1,20 +1,18 @@
 <template>
-  <div class="container">
-    <form @submit.prevent="sendFormLambda">
+  <div class="container h-screen flex justify-center items-center">
+    <div v-if="formConfirmation">
+      <p class="mt-1 text-sm text-gray-500">Form submitted succesfully.</p>
+    </div>
+    <form v-else @submit.prevent="sendFormLambda">
       <h3 class="text-lg leading-6 font-medium text-gray-900">Test inputs</h3>
       <p class="mt-1 text-sm text-gray-500">
         This is a test form. Please input any text.
       </p>
-      <div v-if="formConfirmation">
-        <p class="mt-1 text-sm text-gray-500">
-          Form submitted succesfully.
-        </p>
-      </div>
-      <div v-else>
-        <label for="email" class="block text-sm font-medium text-gray-700"
+      <div class="mt-6">
+        <label for="email" class="block text-sm font-medium text-gray-700 leading-8"
           >Email to send message to</label
         >
-        <div class="mt-1">
+        <div class="mt-1 mb-2">
           <input
             v-model="form.email"
             type="text"
@@ -24,10 +22,10 @@
             placeholder="you@example.com"
           />
         </div>
-                <label for="message" class="block text-sm font-medium text-gray-700"
+        <label for="message" class="block text-sm font-medium text-gray-700 leading-8"
           >Message</label
         >
-        <div class="mt-1">
+        <div class="mt-1 mb-2">
           <textarea
             v-model="form.message"
             type="text"
@@ -38,7 +36,7 @@
           />
         </div>
       </div>
-      <div class="pt-5">
+      <div>
         <div class="flex justify-end">
           <button
             type="submit"
@@ -62,7 +60,7 @@ export default {
     return {
       form: {
         email: '',
-        message: ''
+        message: '',
       },
       isSending: false,
       formConfirmation: false,
@@ -76,7 +74,7 @@ export default {
           `https://hungry-hamilton-94675d.netlify.app/.netlify/functions/mail`,
           {
             email: this.form.email,
-            message: this.form.message
+            message: this.form.message,
           }
         )
         this.formConfirmation = true
