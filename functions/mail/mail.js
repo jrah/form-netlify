@@ -22,7 +22,7 @@ exports.handler = async (event) => {
     to: data.email,
     subject: `New mail from`,
     html: `
-    <p> Message ${data.message} </p>
+    <p> <span style="font-weight: 700">Message:</span> ${data.message} </p>
     `
   }
   try {
