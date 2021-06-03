@@ -5,7 +5,12 @@
       <p class="mt-1 text-sm text-gray-500">
         This is a test form. Please input any text.
       </p>
-      <div>
+      <div v-if="formConfirmation">
+        <p class="mt-1 text-sm text-gray-500">
+          Form submitted succesfully.
+        </p>
+      </div>
+      <div v-else>
         <label for="email" class="block text-sm font-medium text-gray-700"
           >Email</label
         >
@@ -24,11 +29,13 @@
         <div class="flex justify-end">
           <button
             type="submit"
-            :class="isSending ? 'disabled:opacity-50 cursor-not-allowed' : false"
+            :class="
+              isSending ? 'disabled:opacity-50 cursor-not-allowed' : false
+            "
             :disabled="isSending"
             class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            {{isSending ? 'Sending' : 'Save'}}
+            {{ isSending ? 'Sending' : 'Save' }}
           </button>
         </div>
       </div>
@@ -43,7 +50,8 @@ export default {
       form: {
         email: '',
       },
-      isSending: false
+      isSending: false,
+      formConfirmation: false,
     }
   },
   methods: {
@@ -57,6 +65,7 @@ export default {
           }
         )
         this.isSending === false
+        this.formConfirmation === true
         console.log('success')
         this.form.email = ''
         // return response
